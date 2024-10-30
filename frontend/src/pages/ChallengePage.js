@@ -22,17 +22,16 @@ function ChallengePage() {
         fetchChallenge();
     }, [challengeId]);
 
-    // Handle code submission
     const handleSubmit = async () => {
         try {
-            const token = localStorage.getItem('token'); // Assuming the token is stored here
+            const token = localStorage.getItem('token');
             const response = await axios.post('/api/challenges/submit', {
                 challengeId,
                 code
             }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setResult(response.data.message);
+            setResult(response.data.status);
         } catch (error) {
             console.error("Submission failed:", error);
             setResult("Error submitting code.");
@@ -41,24 +40,18 @@ function ChallengePage() {
 
     return (
         <div>
-            {challenge && (
-                <>
-                    <h1>{challenge.title}</h1>
-                    <p>{challenge.description}</p>
-                    <h4>Difficulty: {challenge.difficulty}</h4>
-                    <MonacoEditor
-                        language="javascript"
-                        theme="vs-dark"
-                        value={code}
-                        onChange={(newCode) => setCode(newCode)}
-                        options={{ automaticLayout: true }}
-                    />
-                    <button onClick={handleSubmit}>Submit Code</button>
-                    <div>{result && `Result: ${result}`}</div>
-                </>
-            )}
+            <h1>{challenge.title}</h1>
+            <MonacoEditor
+                language="javascript"
+                theme="vs-dark"
+                value={code}
+                onChange={(newCode) => setCode(newCode)}
+            />
+            <button onClick={handleSubmit}>Submit Code</button>
+            <div>{result && `Result: ${result}`}</div>
         </div>
     );
+
 }
 
 export default ChallengePage;
