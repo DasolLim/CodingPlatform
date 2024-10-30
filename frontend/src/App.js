@@ -1,38 +1,28 @@
 // Main
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ChallengeList from './pages/ChallengeList';
 import { AuthProvider } from './context/AuthContext';
 
-// Create a basic layout wrapper component for pages with sidebars (like Home)
+// Main layout wrapper (if needed)
 function MainLayout({ children }) {
-  return (
-    <div className="main-layout">
-      {children}
-    </div>
-  );
+  return <div className="main-layout">{children}</div>;
 }
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Switch>
+        <Routes>
           {/* Wrap the Home route with MainLayout */}
-          <Route path="/" exact>
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          </Route>
-
-          {/* Register, Login, and ChallengeList can remain separate */}
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/challenges" component={ChallengeList} />
-        </Switch>
+          <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/challenges" element={<ChallengeList />} />
+        </Routes>
       </Router>
     </AuthProvider>
   );
