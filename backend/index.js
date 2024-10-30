@@ -1,5 +1,6 @@
 // Set up a basic Express server
 // Import necessary modules
+// Set up backend using mongoDB Altas and Compass
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
