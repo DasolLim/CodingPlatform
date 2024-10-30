@@ -1,3 +1,4 @@
+//Submission Model
 const mongoose = require('mongoose');
 
 const submissionSchema = new mongoose.Schema({
