@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');  // Make sure this path matches your project structure
+const User = require('../models/user');  // Make sure this path matches your project structure
 const router = express.Router();
 
 // Registration endpoint
