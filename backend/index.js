@@ -18,7 +18,7 @@ const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 const challengeRoutes = require('./routes/challenges');
-app.use('/api/challenges', challengeRoutes)
+app.use('/api/challenges', challengeRoutes); // This line registers /api/challenges routes
 
 // Test route to check server status
 app.get('/status', (req, res) => {

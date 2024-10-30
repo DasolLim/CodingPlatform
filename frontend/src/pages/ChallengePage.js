@@ -6,8 +6,10 @@ import { useParams } from 'react-router-dom';
 function ChallengePage() {
     const { challengeId } = useParams();
     const [challenge, setChallenge] = useState(null);
-    const [code, setCode] = useState('// Start coding here');
     const [result, setResult] = useState(null);
+    const [code, setCode] = useState('// Write your code here');
+    const [output, setOutput] = useState(null);
+    const [error, setError] = useState(null);
 
     // Fetch the challenge details
     useEffect(() => {
@@ -38,6 +40,17 @@ function ChallengePage() {
         }
     };
 
+    const handleExecuteCode = async () => {
+        try {
+            const response = await axios.post('/api/challenges/execute', { code });
+            setOutput(response.data.output);
+            setError(null);
+        } catch (err) {
+            setError(err.response ? err.response.data.error : "Error executing code");
+            setOutput(null);
+        }
+    };
+
     return (
         <div>
             <h1>{challenge.title}</h1>
@@ -47,8 +60,15 @@ function ChallengePage() {
                 value={code}
                 onChange={(newCode) => setCode(newCode)}
             />
-            <button onClick={handleSubmit}>Submit Code</button>
+            <button onClick={handleExecuteCode}>Run Code</button>
+
             <div>{result && `Result: ${result}`}</div>
+
+            <div>
+                <h3>Output:</h3>
+                {output && <pre>{output}</pre>}
+                {error && <pre style={{ color: "red" }}>{error}</pre>}
+            </div>
         </div>
     );
 
