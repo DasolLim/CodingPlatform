@@ -1,3 +1,5 @@
+/* src/components/Navbar.css */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -18,14 +20,38 @@
     border: none;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .sign-up {
-    background-color: #28a745;
+    background-color: #4a66f0;
     color: #ffffff;
+}
+
+.sign-up:hover {
+    background-color: #3a57d1;
 }
 
 .log-in {
     background-color: #333;
     color: #ffffff;
+}
+
+.log-in:hover {
+    background-color: #444;
+}
+
+.practice-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.practice-button:hover {
+    background-color: #45a049;
 }
