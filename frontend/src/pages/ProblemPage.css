@@ -1,0 +1,167 @@
+/* src/pages/ProblemPage.css */
+
+.problem-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #1f1f1f;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.nav-link {
+    color: #ddd;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.run-button,
+.submit-button {
+    padding: 8px 15px;
+    margin-left: auto;
+    margin-right: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.run-button {
+    background-color: #4caf50;
+}
+
+.submit-button {
+    background-color: #007acc;
+}
+
+.content {
+    display: flex;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.description {
+    width: 30%;
+    padding-right: 20px;
+    color: #ddd;
+    background-color: #2b2b2b;
+    border-right: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #333;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #ddd;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tab-button.active {
+    color: #fff;
+    border-bottom: 2px solid #4caf50;
+}
+
+.difficulty {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.difficulty-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.difficulty-badge.easy {
+    background-color: #4caf50;
+}
+
+.difficulty-badge.medium {
+    background-color: #ffc107;
+}
+
+.difficulty-badge.hard {
+    background-color: #f44336;
+}
+
+.tab-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 60vh;
+    /* Limits height and makes it scrollable */
+    padding-right: 10px;
+}
+
+.problem-description,
+.solution {
+    padding: 15px;
+    line-height: 1.6;
+}
+
+.example {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.example p {
+    margin: 5px 0;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.code-editor {
+    width: 40%;
+    padding: 0 20px;
+    background-color: #1e1e1e;
+}
+
+.test-cases {
+    width: 30%;
+    background-color: #2b2b2b;
+    padding: 20px;
+}
+
+.test-case-results {
+    margin-top: 10px;
+}
+
+.test-case {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.test-case.Pass {
+    border-left: 4px solid #4caf50;
+}
+
+.test-case.Fail {
+    border-left: 4px solid #f44336;
+}
